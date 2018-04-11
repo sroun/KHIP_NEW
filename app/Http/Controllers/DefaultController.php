@@ -59,6 +59,23 @@ class DefaultController extends Controller
            $users->save();
 
         }
+        $lang = Language::all();
+        if(!count($lang)){
+            $lang = new Language();
+            $lang->code = "en";
+            $lang->icon="en.png";
+            $lang->name="English";
+            $lang->user_id=1;
+            $lang->active=1;
+            $lang->save();
+            $lang = new Language();
+            $lang->code = "kh";
+            $lang->icon="kh.png";
+            $lang->name="ខ្មែរ";
+            $lang->user_id=1;
+            $lang->active=1;
+            $lang->save();
+        }
         if(Auth::check()) {
             return view('admin.dashboard');
         }

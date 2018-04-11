@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="panel panel-default">
             <div class="panel-heading {{Lang::locale()==='kh' ? 'kh-moul' : 'time-roman'}}">
-                {{trans('label.view_promotion_list')}}
+                {{trans('label.list_view')}}
             </div>
             <div class="panel-body">
                 <div class="container-fluid">
