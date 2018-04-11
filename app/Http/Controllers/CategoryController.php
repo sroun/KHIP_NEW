@@ -21,18 +21,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-//        $locale = Lang::locale();
-//        $l = Language::where('code',$locale)->value('id');
-//        $lang = Language::find($l);
-//        $category = $lang->categories()->where('trash',0)->get();
-//        return view('admin.categories.index',compact('category','l'));
-
-//        $cat = Category::all();
-//        foreach ($cat as $c){
-//            foreach ($c->languages as $l){
-//                echo $l->pivot->name;
-//            }
-//        }
         $locale = Lang::locale();
         $l = Language::where('code',$locale)->value('id');
         $lang = Language::find($l);
@@ -96,7 +84,11 @@ class CategoryController extends Controller
             if (!count($check)) {
                 $cat = new Category();
                 $cat->date = Carbon::now()->toDateString();
-                $cat->parent = $request->parent;
+                if($request->parent){
+                    $cat->parent = $request->parent;
+                }else{
+                    $cat->parent=0;
+                }
 
                 if ($request->publish == 1) {
                     $cat->publish = $request->publish;
