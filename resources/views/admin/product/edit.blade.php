@@ -103,7 +103,7 @@
                         <div class="col-lg-12">
                             <br>
                             <div class="form-group">
-                                {!! Form::submit(trans('label.create'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-success btn-sm' : 'arial btn btn-success btn-sm']) !!}
+                                {!! Form::submit(trans('label.update'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-success btn-sm' : 'arial btn btn-success btn-sm']) !!}
                                 {!! Form::reset(trans('label.reset'),['class'=>Lang::locale()==='kh' ? 'kh-os btn btn-danger btn-sm' : 'arial btn btn-danger btn-sm']) !!}
                             </div>
 

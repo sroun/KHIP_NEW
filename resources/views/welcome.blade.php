@@ -1,12 +1,13 @@
-{{--@if (Route::has('login'))--}}
-    {{--@if (Auth::check())--}}
-        {{--<a href="{{ url('/admin') }}">Home</a>--}}
-    {{--@else--}}
+@if (Route::has('login'))
+    @if (Auth::check())
+        <a href="{{ url('/admin') }}"></a>
+    @else
         <!DOCTYPE html>
         <html lang="{{ app()->getLocale() }}">
         <head>
             <meta charset="utf-8">
             <title>KIHP</title>
+            <link rel="shortcut icon" type="image/x-icon" href="{{asset('iconLanguage/logo.jpg')}}" />
             <meta content="width=device-width, initial-scale=1.0" name="viewport">
             <meta content="" name="keywords">
             <meta content="" name="description">
@@ -66,7 +67,9 @@
             <div class="container">
 
                 <div id="logo" class="pull-left">
-                    <h1><a href="#body" class="scrollto">KH<span>IP</span></a></h1>
+
+                    <img src="{{asset('iconLanguage/logo.jpg')}}" alt="" style="height: 50px;">
+                    {{--<h1><a href="#body" class="scrollto">KH<span>IP</span></a></h1>--}}
                     <!-- Uncomment below if you prefer to use an image logo -->
                     <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
                 </div>
@@ -184,6 +187,5 @@
         </script>
         </body>
         </html>
-
-    {{--@endif--}}
-{{--@endif--}}
+    @endif
+@endif
