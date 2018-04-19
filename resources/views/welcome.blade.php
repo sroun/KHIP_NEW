@@ -68,7 +68,7 @@
 
                 <div id="logo" class="pull-left">
 
-                    <img src="{{asset('iconLanguage/logo.jpg')}}" alt="" style="height: 50px;">
+                    <a href="{{route('front')}}"><img src="{{asset('iconLanguage/logo.jpg')}}" alt="" style="height: 50px;"></a>
                     {{--<h1><a href="#body" class="scrollto">KH<span>IP</span></a></h1>--}}
                     <!-- Uncomment below if you prefer to use an image logo -->
                     <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
@@ -79,7 +79,7 @@
                     $language = \App\Language::find($lid);
                     $category=[];
                     if (count($language)){
-                        $category = $language->categories()->where([['trash',0],['parent',null]])->get();
+                        $category = $language->categories()->where([['trash',0],['parent',0]])->get();
                     }
                 @endphp
                 <nav id="nav-menu-container">
@@ -87,7 +87,7 @@
                         <li class="menu-active"><a href="{{route('front')}}" style="font-family: {{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}};">{{trans('label.home')}}</a></li>
                         @foreach($category as $cat)
                             @if(count($chil = \App\Category::where('parent',$cat->id)->get()))
-                                <li class="menu-has-children"><a href="" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$cat->pivot->name}}</a>
+                                <li class="menu-has-children"><a href="#" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$cat->pivot->name}}</a>
                                     <ul>
                                         @foreach($chil as $c)
                                             @foreach($language->categories()->where('category_id',$c->id)->get() as $v)
@@ -96,20 +96,20 @@
                                                         <ul>
                                                             @foreach($secound as $s)
                                                                 @foreach($language->categories()->where('category_id',$s->id)->get() as $sc)
-                                                                    <li><a href="#" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$sc->pivot->name}}</a></li>
+                                                                    <li><a href="{{url('/query-category/'.$sc->id)}}" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$sc->pivot->name}}</a></li>
                                                                 @endforeach
                                                             @endforeach
                                                         </ul>
                                                     </li>
                                                 @else
-                                                    <li><a href="#" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$v->pivot->name}}</a></li>
+                                                    <li><a href="{{url('/query-category/'.$v->id)}}" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$v->pivot->name}}</a></li>
                                                 @endif
                                             @endforeach
                                         @endforeach
                                     </ul>
                                 </li>
                             @else
-                                <li><a href="#" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$cat->pivot->name}}</a></li>
+                                <li><a href="{{url('/query-category/'.$cat->id)}}" style="font-family:{{Lang::locale()=='kh' ? 'Khmer OS Bokor': ''}}">{{$cat->pivot->name}}</a></li>
                             @endif
                         @endforeach
                         <li>

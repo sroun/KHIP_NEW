@@ -160,7 +160,7 @@
                         <div class="testimonial-item">
                             <img src="{{asset('mainProduct/'.$p->photo)}}" class="new-product" alt="">
                             <h3 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{$p->pivot->name}}</h3>
-                            <small class="margin-top {{Lang::locale()=='kh'? 'kh-os' : ''}}" >{{trans('label.brand')}} : {{$p->brand->name}}</small>
+                            <small class="margin-top {{Lang::locale()=='kh'? 'kh-os-no-bold orange' : 'orange'}}" >{{trans('label.brand')}} : {{$p->brand->name}}</small>
                             <p class="margin-top">
                                 {{str_limit($p->pivot->summary,50)}}
                             </p>
@@ -178,51 +178,51 @@
     <!--==========================
       Services Section
     ============================-->
-    <section id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Services</h2>
+    {{--<section id="services">--}}
+        {{--<div class="container">--}}
+            {{--<div class="section-header">--}}
+                {{--<h2>Services</h2>--}}
                 {{--<p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>--}}
-            </div>
+            {{--</div>--}}
 
-            <div class="row">
+            {{--<div class="row">--}}
 
-                <div class="col-lg-6">
-                    <div class="box wow fadeInLeft">
-                        <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
-                    </div>
-                </div>
+                {{--<div class="col-lg-6">--}}
+                    {{--<div class="box wow fadeInLeft">--}}
+                        {{--<div class="icon"><i class="fa fa-bar-chart"></i></div>--}}
+                        {{--<h4 class="title"><a href="">Lorem Ipsum</a></h4>--}}
+                        {{--<p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="col-lg-6">
-                    <div class="box wow fadeInRight">
-                        <div class="icon"><i class="fa fa-picture-o"></i></div>
-                        <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
-                    </div>
-                </div>
+                {{--<div class="col-lg-6">--}}
+                    {{--<div class="box wow fadeInRight">--}}
+                        {{--<div class="icon"><i class="fa fa-picture-o"></i></div>--}}
+                        {{--<h4 class="title"><a href="">Dolor Sitema</a></h4>--}}
+                        {{--<p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="col-lg-6">
-                    <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
-                    </div>
-                </div>
+                {{--<div class="col-lg-6">--}}
+                    {{--<div class="box wow fadeInLeft" data-wow-delay="0.2s">--}}
+                        {{--<div class="icon"><i class="fa fa-shopping-bag"></i></div>--}}
+                        {{--<h4 class="title"><a href="">Sed ut perspiciatis</a></h4>--}}
+                        {{--<p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="col-lg-6">
-                    <div class="box wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="icon"><i class="fa fa-map"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
-                    </div>
-                </div>
+                {{--<div class="col-lg-6">--}}
+                    {{--<div class="box wow fadeInRight" data-wow-delay="0.2s">--}}
+                        {{--<div class="icon"><i class="fa fa-map"></i></div>--}}
+                        {{--<h4 class="title"><a href="">Magni Dolores</a></h4>--}}
+                        {{--<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-            </div>
+            {{--</div>--}}
 
-        </div>
-    </section><!-- #services -->
+        {{--</div>--}}
+    {{--</section><!-- #services -->--}}
 
     <!--==========================
       Clients Section
@@ -233,7 +233,10 @@
                 <h2 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{trans('label.client')}}</h2>
             </div>
             <div class="owl-carousel clients-carousel">
-                <img src="img/clients/client-1.png" alt="y">
+                @foreach($client as $c)
+                    <?php $logo = $c->pivot->logo;?>
+                    <img src='{{asset("clientlogo/$logo")}}' alt="y">
+                @endforeach
             </div>
 
         </div>
@@ -438,79 +441,79 @@
     <!--==========================
       Our Team Section
     ============================-->
-    <section id="team" class="wow fadeInUp">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Team</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-                        <div class="details">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    {{--<section id="team" class="wow fadeInUp">--}}
+        {{--<div class="container">--}}
+            {{--<div class="section-header">--}}
+                {{--<h2>Our Team</h2>--}}
+            {{--</div>--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-lg-3 col-md-6">--}}
+                    {{--<div class="member">--}}
+                        {{--<div class="pic"><img src="img/team-1.jpg" alt=""></div>--}}
+                        {{--<div class="details">--}}
+                            {{--<h4>Walter White</h4>--}}
+                            {{--<span>Chief Executive Officer</span>--}}
+                            {{--<div class="social">--}}
+                                {{--<a href=""><i class="fa fa-twitter"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-facebook"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-google-plus"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-linkedin"></i></a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-                        <div class="details">
-                            <h4>Sarah Jhinson</h4>
-                            <span>Product Manager</span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="col-lg-3 col-md-6">--}}
+                    {{--<div class="member">--}}
+                        {{--<div class="pic"><img src="img/team-2.jpg" alt=""></div>--}}
+                        {{--<div class="details">--}}
+                            {{--<h4>Sarah Jhinson</h4>--}}
+                            {{--<span>Product Manager</span>--}}
+                            {{--<div class="social">--}}
+                                {{--<a href=""><i class="fa fa-twitter"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-facebook"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-google-plus"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-linkedin"></i></a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-                        <div class="details">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="col-lg-3 col-md-6">--}}
+                    {{--<div class="member">--}}
+                        {{--<div class="pic"><img src="img/team-3.jpg" alt=""></div>--}}
+                        {{--<div class="details">--}}
+                            {{--<h4>William Anderson</h4>--}}
+                            {{--<span>CTO</span>--}}
+                            {{--<div class="social">--}}
+                                {{--<a href=""><i class="fa fa-twitter"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-facebook"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-google-plus"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-linkedin"></i></a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-                        <div class="details">
-                            <h4>Amanda Jepson</h4>
-                            <span>Accountant</span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                {{--<div class="col-lg-3 col-md-6">--}}
+                    {{--<div class="member">--}}
+                        {{--<div class="pic"><img src="img/team-4.jpg" alt=""></div>--}}
+                        {{--<div class="details">--}}
+                            {{--<h4>Amanda Jepson</h4>--}}
+                            {{--<span>Accountant</span>--}}
+                            {{--<div class="social">--}}
+                                {{--<a href=""><i class="fa fa-twitter"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-facebook"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-google-plus"></i></a>--}}
+                                {{--<a href=""><i class="fa fa-linkedin"></i></a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-        </div>
-    </section><!-- #team -->
+        {{--</div>--}}
+    {{--</section><!-- #team -->--}}
 
     <!--==========================
       Contact Section
@@ -549,7 +552,6 @@
 
             </div>
         </div>
-
         <div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>
     </section><!-- #contact -->
 @endsection

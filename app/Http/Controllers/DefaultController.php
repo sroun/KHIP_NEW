@@ -83,8 +83,8 @@ class DefaultController extends Controller
         $lang = Language::where('code',$locale)->value('id');
         $language = Language::find($lang);
         $pro = $language->products()->orderBy('products.id','desc')->limit(10)->get();
-
-        return view('front.home',compact('pro'));
+        $client = $language->clients()->where('trash',0)->get();
+        return view('front.home',compact('pro','client'));
     }
 
     public function AdminPanel(){

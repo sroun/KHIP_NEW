@@ -9,6 +9,7 @@ class Category extends Model
     public function languages(){
         return $this->belongsToMany(Language::class)->withTimestamps()->withPivot('id','name');
     }
+
     public function user(){
         return $this->belongsTo(User::class,'user_added');
     }
@@ -16,7 +17,16 @@ class Category extends Model
     public function promotions(){
         return $this->hasMany(Promotion::class);
     }
+
     public function aboutuses(){
         return $this->hasMany(Aboutus::class);
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+
+    public function careers(){
+        return $this->hasMany(Career::class);
     }
 }

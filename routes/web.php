@@ -6,6 +6,7 @@
     Route::group(['middleware'=>['tran','web']],function (){
 
         Route::get('/product-detail/{id}','frontController@productDetail');
+        Route::get('/query-category/{id}','frontController@QueryByCategory');
     });
     Route::group(['middleware'=>['checklog','tran','auth','web']],function (){
         Route::get('/home','DefaultController@index');

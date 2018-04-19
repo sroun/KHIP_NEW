@@ -24,7 +24,6 @@ class ClientController extends Controller
         $locale = Lang::locale();
         $l = Language::where('code',$locale)->value('id');
         $lang = Language::find($l);
-
         $client = $lang->clients()->where('trash',0)->get();
 
         return view('admin.clients.index',compact('client','l'));
