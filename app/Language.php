@@ -36,7 +36,7 @@ class Language extends Model
     }
 
     public function products(){
-        return $this->belongsToMany(Product::class)->withTimestamps()->withPivot('id','name','description');
+        return $this->belongsToMany(Product::class)->withTimestamps()->withPivot('id','name','description','summary');
     }
 
     public function promotions(){

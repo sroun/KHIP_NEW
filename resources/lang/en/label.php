@@ -84,6 +84,7 @@
         'picdetail'=>'More image...',
         'promotion'=>'Promotion',
         'about_us'=>'About Us',
+        'total'=>'Total',
 
     ]
 

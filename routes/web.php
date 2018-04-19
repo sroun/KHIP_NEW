@@ -3,8 +3,12 @@
     Route::get('/','DefaultController@index')->name('front')->middleware('tran');
     Route::get('/admin/locale/front/{locale}','DefaultController@frontLocale');
 
-    Route::group(['middleware'=>['checklog','tran','auth','web']],function (){
+    Route::group(['middleware'=>['tran','web']],function (){
 
+        Route::get('/product-detail/{id}','frontController@productDetail');
+        Route::get('/query-category/{id}','frontController@QueryByCategory');
+    });
+    Route::group(['middleware'=>['checklog','tran','auth','web']],function (){
         Route::get('/home','DefaultController@index');
         Route::get('/admin/locale/{locale}','DefaultController@locale');
         Route::get('/admin','DefaultController@AdminPanel');
@@ -61,9 +65,6 @@
         Route::get('/category/product/delete/{id}','categoryProductController@show');
         //Price List
         Route::resource('/pricelist','priceLishController');
-
-
-
 
         //Brand
         Route::resource('/brand','brandController');
@@ -129,19 +130,9 @@
         Route::resource('/aboutus','aboutUsController');
         Route::get('/aboutus/delete-record/{id}','aboutUsController@deleteAb');
 
-
-
-
-
-
-
-
-
-
-
-
-
     });
+
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
