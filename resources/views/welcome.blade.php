@@ -74,8 +74,9 @@
                     $locale = Lang::locale();
                     $lid = \App\Language::where('code',$locale)->value('id');
                     $language = \App\Language::find($lid);
+
                     $category=[];
-                    if (count($language)){
+                    if ($language->count()){
                         $category = $language->categories()->where([['trash',0],['parent',null]])->get();
                     }
                 @endphp
