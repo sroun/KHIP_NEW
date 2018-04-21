@@ -13,4 +13,8 @@ class Activity extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_added');
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

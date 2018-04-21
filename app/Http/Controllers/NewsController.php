@@ -105,7 +105,7 @@ class NewsController extends Controller
 
             if ($request->publish == 1) {
                 $activity->publish = $request->publish;
-                $activity->publish_date = Carbon::now()->toDateString();
+                $activity->publish_date = Carbon::now();
             } else {
                 $activity->publish = 0;
             }
@@ -181,7 +181,7 @@ class NewsController extends Controller
         $act = Activity::find($id);
         $act->category_id = $request->category_id;
         if ($request->publishedit=='on'){
-            $act->publish_date = Carbon::now()->toDateString();
+            $act->publish_date = Carbon::now();
             $act->publish = 1;
         }else{
             $act->publish = 0;

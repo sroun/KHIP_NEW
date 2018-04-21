@@ -18,7 +18,7 @@ class CreateActivitiesTable extends Migration
             $table->date('date');
             $table->tinyInteger('trash');
             $table->tinyInteger('publish');
-            $table->date('publish_date')->nullable();
+            $table->dateTime('publish_date')->nullable();
             $table->integer('category_id');
             $table->integer('user_added');
             $table->integer('user_modifies')->nullable();

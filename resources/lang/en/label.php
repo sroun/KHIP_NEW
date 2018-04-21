@@ -85,6 +85,10 @@
         'promotion'=>'Promotion',
         'about_us'=>'About Us',
         'total'=>'Total',
+        'previous'=>'Previous',
+        'next'=>'Next',
+        'other'=>'Other',
+
 
     ]
 

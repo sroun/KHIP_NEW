@@ -552,6 +552,6 @@
 
             </div>
         </div>
-        <div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>
+        {{--<div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>--}}
     </section><!-- #contact -->
 @endsection

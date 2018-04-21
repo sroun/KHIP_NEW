@@ -18,7 +18,7 @@ class CreateTableActivityLanguage extends Migration
             $table->integer('language_id');
             $table->integer('activity_id');
             $table->string('title');
-            $table->string('main_content');
+            $table->text('main_content');
             $table->text('content')->nullable();
             $table->timestamps();
         });

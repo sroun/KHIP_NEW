@@ -7,7 +7,9 @@
             <div class="col-lg-12">
                 <div class="container-product">
                     <div class="heading padding-product">
-                        <h4 class="{{Lang::locale()=='kh'? 'kh-os' : 'time-roman'}}">{{$categoryName}}</h4>
+                        <div class="section-header">
+                            <h2 class="{{Lang::locale()=='kh'? 'kh-os' : 'time-roman'}}">{{$categoryName}}</h2>
+                        </div>
                     </div>
                     <div class="content-aboutus padding-product">
                         <br>
