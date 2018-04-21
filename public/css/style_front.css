@@ -10,7 +10,7 @@
 body {
     background: #fff;
     color: #444;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Magra", sans-serif;
 }
 a {
     color: rgba(75, 75, 75, 0.92);
@@ -1160,3 +1160,41 @@ body.mobile-nav-active #mobile-nav-toggle {
 .orange{
     color: #eb5516;
 }
+.career-body{
+    width: 100%;
+    margin: 3px;
+    border-bottom: 1px solid rgba(202, 202, 202, 0.23);
+    border-top: 1px solid rgba(202, 202, 202, 0.23);
+}
+.career-body:hover{
+    box-shadow: 0 0 8px -2px darkgray;
+}
+.career-title-kh{
+    font-size: 16px;
+    font-family: "Khmer OS Content", "Khmer OS ",Serif;
+    font-weight: bold;
+    line-height: 30px;
+}
+.career-title-en{
+    font-size: 16px;
+    font-family: "Magra", "Arial ",Serif;
+    font-weight: bold;
+    line-height: 30px;
+}
+.career-kh{
+    font-size: 13px;
+    font-family: "Khmer OS Content", "Khmer OS ",Serif;
+}
+.career-en{
+    font-size: 13px;
+    font-family: "Magra", "Arial ",Serif;
+}
+.career-date-en{
+    font-family: "Magra", "Arial ",Serif;
+    font-size: 12px;
+}
+.career-date-kh{
+    font-family: "Khmer OS Content", "Khmer OS ",Serif;
+    font-size: 12px;
+}
+

@@ -230,12 +230,12 @@
     <section id="clients" class="wow fadeInUp">
         <div class="container">
             <div class="section-header">
-                <h2 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{trans('label.client')}}</h2>
+                <h2 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{trans('label.our_client')}}</h2>
             </div>
-            <div class="owl-carousel clients-carousel">
+            <div class="owl-carousel clients-carousel" style="padding: 20px">
                 @foreach($client as $c)
                     <?php $logo = $c->pivot->logo;?>
-                    <img src='{{asset("clientlogo/$logo")}}' alt="y">
+                    <a href="{{$c->pivot->url}}" target="_blank"><img style="padding: 25px; margin: auto;" src='{{asset("clientlogo/$logo")}}' alt="y"></a>
                 @endforeach
             </div>
 
@@ -521,7 +521,7 @@
     <section id="contact" class="wow fadeInUp">
         <div class="container">
             <div class="section-header">
-                <h2>Contact Us</h2>
+                <h2 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{trans('label.contact_us')}}</h2>
             </div>
 
             <div class="row contact-info">
@@ -530,7 +530,7 @@
                     <div class="contact-address">
                         <i class="ion-ios-location-outline"></i>
                         <h3>Address</h3>
-                        <address>A108 Adam Street, NY 535022, USA</address>
+                        <address>{{$address}}</address>
                     </div>
                 </div>
 
@@ -538,7 +538,7 @@
                     <div class="contact-phone">
                         <i class="ion-ios-telephone-outline"></i>
                         <h3>Phone Number</h3>
-                        <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                        <p><a href="tel:{{$phone}}">{{$phone}}</a></p>
                     </div>
                 </div>
 
@@ -546,7 +546,7 @@
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:info@example.com">info@example.com</a></p>
+                        <p><a href="mailto:{{$email}}">{{$email}}</a></p>
                     </div>
                 </div>
 

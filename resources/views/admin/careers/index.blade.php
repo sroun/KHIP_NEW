@@ -11,15 +11,13 @@
                     @if($career->count())
                         <label class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.list_view')}}</label>
                         <div class="table-responsive">
-                            <table id="" class="table table-bordered table-striped table-hover {{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">
+                            <table id="career" class="table table-bordered table-striped table-hover {{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">
                                 <thead>
                                 <tr>
                                     <th class="center">{{trans('label.No')}}</th>
-                                    <th class="center">{{trans('label.date')}}</th>
                                     <th>{{trans('label.title')}}</th>
                                     <th>{{trans('label.job_category')}}</th>
                                     <th>{{trans('label.job_type')}}</th>
-                                    <th>{{trans('label.location')}}</th>
                                     <th class="center">{{trans('label.close_date')}}</th>
                                     <th class="center">{{trans('label.publish')}}</th>
                                     <th class="center">{{trans('label.created_by')}}</th>
@@ -31,7 +29,6 @@
                                 @foreach($career as $c)
                                     <tr>
                                         <td class="center">{{$i++}}</td>
-                                        <td class="center">{{\Carbon\Carbon::parse($c->date)->format('d-M-Y')}}</td>
                                         <td>{{$c->pivot->title}}</td>
                                         <td>
                                             <?php
@@ -43,7 +40,6 @@
                                             echo \Illuminate\Support\Facades\DB::table('jobtype_language')->select('name')->where('jobtype_id',$c->jobtype_id)->where('language_id',$l)->value('name');
                                             ?>
                                         </td>
-                                        <td>{{$c->location}}</td>
                                         <td class="center">{{\Carbon\Carbon::parse($c->close_date)->format('d-M-Y')}}</td>
                                         <td class="center">
                                             @if($c->publish==0)
@@ -78,6 +74,9 @@
 @stop
 @section('script')
     <script>
+        $(document).ready(function () {
+            $('#career').dataTable();
+        });
         function viewCareer(id,langId) {
             $.ajax({
                 type:'get',

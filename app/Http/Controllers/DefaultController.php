@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\Language;
 use App\Position;
 use App\Role;
@@ -84,7 +85,13 @@ class DefaultController extends Controller
         $language = Language::find($lang);
         $pro = $language->products()->orderBy('products.id','desc')->limit(10)->get();
         $client = $language->clients()->where('trash',0)->get();
-        return view('front.home',compact('pro','client'));
+        $contact = Contact::limit(1)->get();
+        foreach ($contact as $c){
+            $address = $c->address;
+            $phone = $c->phone_number;
+            $email = $c->email;
+        }
+        return view('front.home',compact('pro','client','address','phone','email'));
     }
 
     public function AdminPanel(){

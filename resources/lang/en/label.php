@@ -68,6 +68,7 @@
         'career' => 'Career',
         'location' => 'Location',
         'close_date' => 'Close Date',
+        'publish_date' => 'Publish Date',
         'detail' => 'Detail',
         'company_name' => 'Company Name',
         'phone_number' => 'Phone Number',
@@ -84,7 +85,12 @@
         'picdetail'=>'More image...',
         'promotion'=>'Promotion',
         'about_us'=>'About Us',
+        'home'=>'Home',
         'total'=>'Total',
+        'url' => 'URL',
+        'placeholder_url' => 'http://www.example.com',
+        'our_client' => 'Our Client',
+        'contact_us' => 'Contact Us'
 
     ]
 

@@ -7,6 +7,7 @@
 
         Route::get('/product-detail/{id}','frontController@productDetail');
         Route::get('/query-category/{id}','frontController@QueryByCategory');
+        Route::get('/career-detail/{id}','frontController@careerDetail');
     });
     Route::group(['middleware'=>['checklog','tran','auth','web']],function (){
         Route::get('/home','DefaultController@index');

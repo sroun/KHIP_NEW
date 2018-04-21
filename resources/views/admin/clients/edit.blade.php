@@ -19,10 +19,21 @@
                                  </div>
                              </div>
                              <div class="row">
-                                 <div class="col-lg-12">
+                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <span class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.category_name')}}</span>
                                          {!! Form::select('category_id',$cat,$d->category_id ? $d->category_id : null,['class'=>Lang::locale()==='kh' ?'kh-os edit-form-control height-35 text-blue' : 'arial edit-form-control height-35 text-blue','placeholder'=>trans('label.choose_item'),'id'=>'parent_num']) !!}
+                                     </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                     <div class="form-group">
+                                         <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.url')}}</span>
+                                         {!! Form::text('url',$d->pivot->url,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.placeholder_url')])!!}
+                                         @if($errors->has('url'))
+                                             <span class="text-danger">
+                                            {{$errors->first('url')}}
+                                        </span>
+                                         @endif
                                      </div>
                                  </div>
                              </div>
@@ -54,11 +65,6 @@
                              </div>
                          </div>
                          <div class="col-lg-12">
-                             <div class="row">
-                                 <div class="col-lg-12">
-                                     <textarea name="description" class="form-control description">{{$d->pivot->description}}</textarea>
-                                 </div>
-                             </div>
                              <div class="row">
                                  <div class="col-lg-12">
                                      <div class="form-group">

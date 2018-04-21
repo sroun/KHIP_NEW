@@ -79,13 +79,8 @@
                     $language = \App\Language::find($lid);
 
                     $category=[];
-<<<<<<< HEAD
                     if ($language->count()){
-                        $category = $language->categories()->where([['trash',0],['parent',null]])->get();
-=======
-                    if (count($language)){
                         $category = $language->categories()->where([['trash',0],['parent',0]])->get();
->>>>>>> f0e60fd960f253885630f3fa92182522b86f37d5
                     }
                 @endphp
                 <nav id="nav-menu-container">
