@@ -7,8 +7,8 @@
             <th class="center">{{trans('label.No')}}</th>
             <th>{{trans('label.logo')}}</th>
             <th>{{trans('label.date')}}</th>
-            <th>{{trans('label.category_name')}}</th>
             <th>{{trans('label.title')}}</th>
+            <th>{{trans('label.url')}}</th>
             <th class="center">{{trans('label.publish')}}</th>
             <th>{{trans('label.created_by')}}</th>
             <th style="width:20%; !important;" class="center">{{trans('label.action')}}</th>
@@ -22,12 +22,8 @@
                 <td style="line-height: 50px" class="center">{{$i++}}</td>
                 <td style="line-height: 50px" class="center"><img src='{{asset("clientlogo/$logo")}}' alt="no image" style="background: white;border:2px solid #00A6C7;border-radius: 50px;padding:1px;height: 50px; width: 50px;"></td>
                 <td style="line-height: 50px">{{ \Carbon\Carbon::parse($c->date)->format('d-M-Y')}}</td>
-                <td style="line-height: 50px">
-                    <?php
-                        echo \Illuminate\Support\Facades\DB::table('category_language')->select('name')->where('category_id',$c->category_id)->where('language_id',$l)->value('name');
-                    ?>
-                </td>
                 <td style="line-height: 50px">{{str_limit($c->pivot->title,15)}}</td>
+                    <td style="line-height: 50px">{{$c->pivot->url}}</td>
                 <td style="line-height: 50px" class="center">
                     @if($c->publish==0)
                         <i class='fa fa-lock text-red text-sm'></i>

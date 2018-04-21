@@ -107,10 +107,10 @@ class ClientController extends Controller
             $id = $client->id;
 
             $request->session()->put('client_id', [$id => $id]);
-            $client->languages()->attach($request->language_id, ['title' => $request->title,'description'=>$request->description,'logo'=>$logo]);
+            $client->languages()->attach($request->language_id, ['title' => $request->title,'url'=>$request->url,'logo'=>$logo]);
             return redirect()->back();
         } else {
-            DB::table('client_language')->insert(['language_id' => $request->language_id, 'client_id' => $id, 'title' => $request->title,'description'=>$request->description,'logo'=>$logo]);
+            DB::table('client_language')->insert(['language_id' => $request->language_id, 'client_id' => $id, 'title' => $request->title,'url'=>$request->url,'logo'=>$logo]);
             if (!$request->session()->has('client_lang_id')) {
                 $id = 0;
             }
@@ -178,7 +178,7 @@ class ClientController extends Controller
             }
 
         }
-        DB::table('client_language')->where('id',$request->pivotId)->update(['title'=>$request->title,'description'=>$request->description]);
+        DB::table('client_language')->where('id',$request->pivotId)->update(['title'=>$request->title,'url'=>$request->url]);
         return redirect(route('client.create'));
     }
 

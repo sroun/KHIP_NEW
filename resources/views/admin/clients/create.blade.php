@@ -14,7 +14,7 @@
                     <div class="col-md-10">
                         <div class="row">
                             <input type="hidden" name="client_id" id="client_id" value="0">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.language_name')}}</span>
                                     {!! Form::select('language_id',$language,null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','id'=>'lang','placeholder'=>trans('label.choose_item')])!!}
@@ -25,9 +25,6 @@
                                     @endif
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.title')}}</span>
@@ -39,6 +36,9 @@
                                     @endif
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.category_name')}}</span>
@@ -47,6 +47,17 @@
                                         <span class="text-danger">
                                         {{$errors->first('category_id')}}
                                     </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.url')}}</span>
+                                    {!! Form::text('url',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.placeholder_url')])!!}
+                                    @if($errors->has('url'))
+                                        <span class="text-danger">
+                                            {{$errors->first('url')}}
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -81,11 +92,6 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <textarea name="description" class="form-control description"></textarea>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -128,44 +134,7 @@
 @endsection
 
 @section('script')
-    <script src="{{asset('//cdn.tinymce.com/4/tinymce.min.js')}}"></script>
     <script type="text/javascript">
-        var editor_config = {
-            path_absolute : "/",
-            selector: 'textarea.description',
-            plugins: [
-                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-                "searchreplace wordcount visualblocks visualchars code fullscreen",
-                "insertdatetime media nonbreaking save table contextmenu directionality",
-                "emoticons template paste textcolor colorpicker textpattern "
-            ],
-            toolbar: "insertfile undo redo | fontselect | fontsizeselect |​ forecolor | backcolor | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
-            font_formats: 'Arial=arial;khmer os= khmer os;Khmer OS Muol Light=Khmer OS Muol Light;Khmer OS Muol=Khmer OS Muol;Khmer OS Content=Khmer OS Content',
-            fixed_toolbar_container: '#mytoolbar',
-            relative_urls: true,
-            file_browser_callback : function(field_name, url, type, win) {
-                var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-                var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
-
-                var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
-                if (type == 'image') {
-                    cmsURL = cmsURL + "&type=Images";
-                } else {
-                    cmsURL = cmsURL + "&type=Files";
-                }
-
-                tinyMCE.activeEditor.windowManager.open({
-                    file : cmsURL,
-                    title : 'Filemanager',
-                    width : x * 0.8,
-                    height : y * 0.8,
-                    resizable : "yes",
-                    close_previous : "no"
-                });
-            }
-        };
-
-        tinymce.init(editor_config);
 
         var loadFile = function(event) {
             var output = document.getElementById('preView');

@@ -69,6 +69,7 @@
         'career' => 'ការងារ',
         'location' => 'ទីតាំង',
         'close_date' => 'ថ្ងៃផុតកំណត់',
+        'publish_date' => 'ថ្ងៃផ្សព្វផ្សាយ',
         'detail' => 'លំអិត',
         'company_name' => 'ឈ្មោះក្រុមហ៊ុន',
         'phone_number' => 'លេខទូរស័ព្ទ',
@@ -88,9 +89,16 @@
         'home'=>'ទំព័រដើម',
         'new_product'=>'ផលិតផលថ្មី',
         'total'=>'សរុប',
+<<<<<<< HEAD
         'previous'=>'ថយក្រោយ',
         'next'=>'បន្ទាប់',
         'other'=>'ផ្សេងទៀត',
+=======
+        'url' => 'តំណភ្ជាប់',
+        'placeholder_url' => 'http://www.example.com',
+        'our_client' => 'អតិថិជនរបស់យើង',
+        'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ'
+>>>>>>> bba2a4be3d34a87fc9d520c036ae86b1345ab854
 
     ]
 ?>

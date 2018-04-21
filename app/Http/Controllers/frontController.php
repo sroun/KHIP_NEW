@@ -46,14 +46,27 @@ class frontController extends Controller
            return view('errors.404');
        }
    }
+    public function careerDetail($id){
+
+        $locale = Lang::locale();
+        $lang = Language::where('code',$locale)->value('id');
+        $language = Language::find($lang);
+        $car = $language->careers()->where('careers.id',$id)->get();
+        return view('front.career-detail',compact('car','lang'));
+    }
 
    public function QueryByCategory(Request $request,$id){
        $locale = Lang::locale();
        $lang = Language::where('code',$locale)->value('id');
        $language = Language::find($lang);
        $cat = Category::find($id);
+<<<<<<< HEAD
        if ($cat){
            $get = $request->get('page');
+=======
+
+       if ($cat){
+>>>>>>> bba2a4be3d34a87fc9d520c036ae86b1345ab854
            $categoryName ="";
            $catName = $cat->languages()->where('language_id',$lang)->get();
            foreach ($catName as $c){
@@ -62,14 +75,28 @@ class frontController extends Controller
 
            $product = $cat->products()->orderBy('categoryproduct_id','desc')->paginate(18);
            $aboutus = $cat->aboutuses()->where('category_id',$id)->get();
+<<<<<<< HEAD
            $news = $cat->activities()->orderBy('activities.id','desc')->paginate(2);
+=======
+           $career = $cat->careers()->where('trash',0)->orderBy('careers.id','desc')->paginate(15);
+>>>>>>> bba2a4be3d34a87fc9d520c036ae86b1345ab854
 
            if(count($product)){
 //               $pro = Product::where('trash',0)->get();
 //               $proCount=round(count($pro)/18);
                return view('front.product',compact('product','lang','categoryName'));
+<<<<<<< HEAD
 
            }else if(count($aboutus)){
+=======
+           }else if(count($aboutus)) {
+               return view('front.aboutus', compact('aboutus', 'lang', 'categoryName'));
+           }else if(count($career)){
+                   return view('front.career',compact('career','lang','categoryName'));
+           }else{
+               return view('front.none',compact('lang','categoryName'));
+           }
+>>>>>>> bba2a4be3d34a87fc9d520c036ae86b1345ab854
 
                return view('front.aboutus',compact('aboutus','lang','categoryName','cat','get'));
 

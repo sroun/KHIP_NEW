@@ -98,7 +98,7 @@ class productController extends Controller
             $request->session()->forget('productid');
         }
        $pro = Product::find($proId['id']);
-       if(!count($pro)){
+       if(!$pro->count()){
 
            $time =Carbon::now()->toDateString();
            $name="default.png";

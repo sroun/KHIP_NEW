@@ -18,7 +18,7 @@ class CreateTableClientLanguage extends Migration
             $table->integer('language_id');
             $table->integer('client_id');
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->string('url')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();
         });
