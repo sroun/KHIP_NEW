@@ -46,6 +46,9 @@ class User extends Authenticatable
     public function careers(){
         return $this->hasMany(Career::class,'user_added');
     }
+    public function sliders(){
+        return $this->hasMany(Slider::class);
+    }
 
     public function isAdmin(){
         if($this->role->name =="administrator"){

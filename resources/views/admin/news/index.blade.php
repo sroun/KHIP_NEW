@@ -9,7 +9,6 @@
             <th>{{trans('label.date')}}</th>
             <th>{{trans('label.category_name')}}</th>
             <th>{{trans('label.title')}}</th>
-            <th>{{trans('label.description')}}</th>
             <th class="center">{{trans('label.publish')}}</th>
             <th>{{trans('label.created_by')}}</th>
             <th style="width:10%; !important;" class="center">{{trans('label.action')}}</th>
@@ -27,8 +26,7 @@
                         echo \Illuminate\Support\Facades\DB::table('category_language')->select('name')->where('category_id',$a->category_id)->where('language_id',$l)->value('name');
                     ?>
                 </td>
-                <td style="line-height: 50px">{{str_limit($a->pivot->title,15)}}</td>
-                <td style="line-height: 50px">{!! str_limit($a->pivot->content,20) !!}</td>
+                <td style="line-height: 50px">{{str_limit($a->pivot->title,50)}}</td>
                 <td style="line-height: 50px" class="center">
                     @if($a->publish==0)
                         <i class='fa fa-lock text-red text-sm'></i>
@@ -38,6 +36,7 @@
                 </td>
                 <td style="line-height: 50px">{{$a->user->name}}</td>
                 <td style="line-height: 50px" class="center">
+                    <a title="{{trans('label.detail')}}" class="cursor-pointer padding-7px"​​ onclick='viewNews("{{$a->id}}","{{$a->pivot->language_id}}")' data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-eye text-info"></i></a>
                     <a href="{{url('news/edit'.'/'.$a->id.'/'.$a->pivot->language_id)}}" class="cursor-pointer padding-7px"​​><i class="fa fa-edit"></i></a>
                     <a onclick="deleteNews('{{$a->id}}')"><i class="fa fa-trash icon-delete cursor-pointer"></i></a>
                 </td>

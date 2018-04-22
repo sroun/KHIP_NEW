@@ -98,10 +98,9 @@ class productController extends Controller
             $request->session()->forget('productid');
         }
        $pro = Product::find($proId['id']);
-       if(!$pro->count()){
-
+       if(!$pro){
            $time =Carbon::now()->toDateString();
-           $name="default.png";
+           $name="default_main.png";
            if($file =$request->file('mainphoto')){
                $name=$time."_".$file->getClientOriginalName();
                $file->move('mainProduct',$name);
@@ -178,7 +177,7 @@ class productController extends Controller
         $product = Product::find($id);
         $oldpic =$product->photo;
         $time =Carbon::now()->toDateString();
-        $name="default.png";
+        $name="default_main.png";
         if($file =$request->file('mainphoto')){
             unlink(public_path('mainProduct'.$ds.$oldpic));
             $name=$time."_".$file->getClientOriginalName();

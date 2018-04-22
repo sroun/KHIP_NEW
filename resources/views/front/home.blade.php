@@ -84,46 +84,19 @@
                 <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="imageSlider/spin.svg" />
             </div>
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1500px;height:700px;overflow:hidden;">
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/045.jpg" />
-                    <div u="thumb">Slide Description 001</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/043.jpg" />
-                    <div u="thumb">Slide Description 002</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/046.jpg" />
-                    <div u="thumb">Slide Description 003</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/047.jpg" />
-                    <div u="thumb">Slide Description 004</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/048.jpg" />
-                    <div u="thumb">Slide Description 005</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/044.jpg" />
-                    <div u="thumb">Slide Description 006</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/050.jpg" />
-                    <div u="thumb">Slide Description 007</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/049.jpg" />
-                    <div u="thumb">Slide Description 008</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/052.jpg" />
-                    <div u="thumb">Slide Description 009</div>
-                </div>
-                <div data-p="170.00">
-                    <img data-u="image" src="imageSlider/051.jpg" />
-                    <div u="thumb">Slide Description 010</div>
-                </div>
+                @if(count($slider))
+                    @foreach($slider as $s)
+                        <div data-p="170.00">
+                            <img data-u="image" src="imageSlider/{{$s->image}}" />
+                            <div u="thumb">{{$s->pivot->description}}</div>
+                        </div>
+                    @endforeach
+                @else
+                    <div data-p="170.00">
+                        <img data-u="image" src="imageSlider/default.png" />
+                        <div u="thumb">Slide Description 001</div>
+                    </div>
+                @endif
             </div>
             <!-- Thumbnail Navigator -->
             <div u="thumbnavigator" style="position:absolute;bottom:0px;left:0px;width:1500px;height:50px;color:#FFF;overflow:hidden;cursor:default;background-color:rgba(0,0,0,.5);">

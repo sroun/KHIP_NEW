@@ -47,5 +47,8 @@ class Language extends Model
         return $this->belongsToMany(Aboutus::class)->withTimestamps()->withPivot('id','description');
 
     }
+    public function sliders(){
+        return $this->belongsToMany(Slider::class)->withTimestamps()->withPivot('description');
+    }
 
 }
