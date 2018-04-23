@@ -140,9 +140,11 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$langId)
     {
-        //
+        $lang = Language::find($langId);
+        $news = $lang->activities()->where('activity_id',$id)->get();
+        return view('admin.news.view',compact('news','langId'));
     }
 
     /**

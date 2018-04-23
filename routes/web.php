@@ -9,8 +9,11 @@
         Route::get('/query-category/{id}','frontController@QueryByCategory');
         Route::get('/product-by-category/{id}','frontController@productByProductCategory');
         Route::get('/career-detail/{id}','frontController@careerDetail');
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 685c0c87669018ed39793520467fb94397ceff8e
     });
     Route::group(['middleware'=>['checklog','tran','auth','web']],function (){
         Route::get('/home','DefaultController@index');
@@ -100,6 +103,7 @@
         Route::resource('/news','NewsController');
         Route::get('/news/delete/{id}','NewsController@destroy');
         Route::get('/news/edit/{id}/{langId}','NewsController@edit');
+        Route::get('/news/view/{id}/{langId}','NewsController@show');
 
         //jobcategory
         Route::resource('/jobcategory','JobcategoryController');
@@ -133,6 +137,10 @@
         //About Us
         Route::resource('/aboutus','aboutUsController');
         Route::get('/aboutus/delete-record/{id}','aboutUsController@deleteAb');
+        //slider
+        Route::resource('/slider','SliderController');
+        Route::get('/slider/delete/{id}','SliderController@destroy');
+        Route::get('/slider/edit/{id}/{langId}','SliderController@edit');
 
     });
 

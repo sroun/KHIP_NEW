@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os required' : 'arial required'}}">{{trans('label.main_photo')}}</span>
                                         <input type="file" class="edit-form-control" id="image" onchange="loadFile(event)" name="image" accept="image/x-png,image/gif,image/jpeg" style="display: none;">
-                                        <label for="image" class="cursor-pointer"><img src="{{asset('/newsImages/default_mainphoto.png')}}" alt="" class="img-responsive" id="preView" style="border: 2px solid #346895; padding: 2px;margin-top:5px;"></label>
+                                        <label for="image" class="cursor-pointer"><img src="{{asset('/newsImages/default_main.png')}}" alt="" class="img-responsive" id="preView" style="border: 2px solid #346895; padding: 2px;margin-top:5px;"></label>
                                         @if($errors->has('image'))
                                             <span class="text-danger">
                                                 {{$errors->first('image')}}
@@ -132,6 +132,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="view" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
             </div>
 
             <div id="testing">
@@ -261,5 +265,18 @@
             window.location.reload();
         }
 
+        function viewNews(id,langId) {
+            $.ajax({
+                type:'get',
+                url:"{{url('/news/view')}}"+'/'+id+'/'+langId,
+                dataType:'html',
+                success:function (data) {
+                    $('#view').html(data);
+                },
+                error:function (error) {
+                    console.log(error);
+                }
+            });
+        }
     </script>
 @endsection

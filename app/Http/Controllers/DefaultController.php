@@ -85,6 +85,7 @@ class DefaultController extends Controller
         $language = Language::find($lang);
         $pro = $language->products()->orderBy('products.id','desc')->limit(10)->get();
         $client = $language->clients()->where('trash',0)->get();
+        $slider = $language->sliders()->where('trash',0)->get();
         $contact = Contact::limit(1)->get();
         $address="N/A";
         $phone="N/A";
@@ -94,7 +95,7 @@ class DefaultController extends Controller
             $phone = $c->phone_number;
             $email = $c->email;
         }
-        return view('front.home',compact('pro','client','address','phone','email'));
+        return view('front.home',compact('pro','client','address','phone','email','slider'));
     }
 
     public function AdminPanel(){

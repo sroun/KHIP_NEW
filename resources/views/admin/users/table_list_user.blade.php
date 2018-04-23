@@ -26,10 +26,10 @@
                 <td style="line-height: 50px" class="center">
 
 
-                    <a class="cursor-pointer icon-edit" onclick='editUser("{{$u->id}}")' style="padding: 5px;" data-toggle="modal" data-target="#editUser"><i class="fa fa-edit"></i></a>
+                    <a class="cursor-pointer text-warning" onclick='editUser("{{$u->id}}")' style="padding: 5px;" data-toggle="modal" data-target="#editUser"><i class="fa fa-edit"></i></a>
                     <a class="cursor-pointer" onclick='resetPassword("{{$u->id}}")' data-toggle="modal" data-target=".bs-example-modal-sm" style="padding: 5px;"><i class="fa fa-refresh"></i></a>
-                    <a class="cursor-pointer icon-trash" style="padding: 5px;" onclick='deleteUser("{{$u->id}}")'><i class="fa fa-trash" style="color: red;"></i></a>
-                    <a class="cursor-pointer icon-view" onclick='viewUser("{{$u->id}}")' style="padding: 5px;" data-toggle="modal" data-target="#viewUser" style="padding: 5px;"><i class="fa fa-eye" style=""></i></a>
+                    <a class="cursor-pointer text-danger" style="padding: 5px;" onclick='deleteUser("{{$u->id}}")'><i class="fa fa-trash" style="color: red;"></i></a>
+                    <a class="cursor-pointer text-info" onclick='viewUser("{{$u->id}}")' style="padding: 5px;" data-toggle="modal" data-target="#viewUser" style="padding: 5px;"><i class="fa fa-eye" style=""></i></a>
 
                 </td>
         </tr>

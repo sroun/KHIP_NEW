@@ -6,16 +6,16 @@
                 {{trans('label.detail')}}
             </div>
             <div class="panel-body">
-                @foreach($career as $c)
+                @foreach($news as $n)
                     <div class="row">
                         <div class="col-lg-12">
-                            <h4 class="text-blue {{\Illuminate\Support\Facades\Lang::locale()==='kh' ? 'kh-moul' : 'time-roman'  }} ">{{$c->pivot->title}}</h4>
+                            <h4 class="text-blue {{\Illuminate\Support\Facades\Lang::locale()==='kh' ? 'kh-moul' : 'time-roman'  }} ">{{$n->pivot->title}}</h4>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-lg-12">
-                            {!! $c->pivot->description !!}
+                            {!! $n->pivot->content !!}
                         </div>
                     </div>
                 @endforeach

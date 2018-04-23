@@ -90,11 +90,20 @@
         'previous'=>'Previous',
         'next'=>'Next',
         'other'=>'Other',
+<<<<<<< HEAD
+=======
+
+>>>>>>> 685c0c87669018ed39793520467fb94397ceff8e
         'url' => 'URL',
         'placeholder_url' => 'http://www.example.com',
         'our_client' => 'Our Client',
         'contact_us' => 'Contact Us',
+<<<<<<< HEAD
         'new_product'=>'New Product',
+=======
+        'slide_show' => 'Slide Show'
+
+>>>>>>> 685c0c87669018ed39793520467fb94397ceff8e
     ]
 
 

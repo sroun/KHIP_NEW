@@ -60,6 +60,7 @@ class frontController extends Controller
         return view('front.career-detail', compact('car', 'lang'));
     }
 
+<<<<<<< HEAD
     public function QueryByCategory(Request $request, $id)
     {
         $locale = Lang::locale();
@@ -104,5 +105,57 @@ class frontController extends Controller
             }
         }
     }
+=======
+   public function QueryByCategory(Request $request,$id){
+       $locale = Lang::locale();
+       $lang = Language::where('code',$locale)->value('id');
+       $language = Language::find($lang);
+       $cat = Category::find($id);
+       if ($cat){
+           $get = $request->get('page');
+
+       if ($cat){
+           $categoryName ="";
+           $catName = $cat->languages()->where('language_id',$lang)->get();
+           foreach ($catName as $c){
+               $categoryName=$c->pivot->name;
+           }
+
+           $product = $cat->products()->orderBy('categoryproduct_id','desc')->paginate(18);
+           $aboutus = $cat->aboutuses()->where('category_id',$id)->get();
+           $news = $cat->activities()->orderBy('activities.id','desc')->paginate(2);
+           $career = $cat->careers()->where('trash',0)->orderBy('careers.id','desc')->paginate(15);
+//           $client = $cat->clients()->where('trash',0)->orderBy('clients.id','desc')->paginate(15);
+
+           if(count($product)){
+//               $pro = Product::where('trash',0)->get();
+//               $proCount=round(count($pro)/18);
+               return view('front.product',compact('product','lang','categoryName'));
+
+           }else if(count($aboutus)){
+           }else if(count($aboutus)) {
+               return view('front.aboutus', compact('aboutus', 'lang', 'categoryName'));
+           }else if(count($career)){
+                   return view('front.career',compact('career','lang','categoryName'));
+           }else{
+               return view('front.none',compact('lang','categoryName'));
+           }
+
+               return view('front.aboutus',compact('aboutus','lang','categoryName','cat','get'));
+
+           }else if(count($news)){
+               $pro = Activity::where('trash',0)->get();
+               $proCount=round(count($pro)/2);
+               return view('front.news',compact('news','lang','categoryName','cat','get','proCount'));
+
+           }
+           else{
+               return view('front.none',compact('lang','categoryName'));
+           }
+       }else{
+           return view('errors.404');
+       }
+   }
+>>>>>>> 685c0c87669018ed39793520467fb94397ceff8e
 }
 

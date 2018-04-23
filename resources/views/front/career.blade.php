@@ -7,10 +7,12 @@
             <div class="col-lg-12">
                 <div class="container-product">
                     <div class="heading padding-product">
-                        <h4 style="float: left;" class="{{Lang::locale()=='kh'? 'kh-os' : 'time-roman'}}">{{$categoryName}}</h4>
-                        <small class="pull-right" style="font-family: 'Khmer OS Freehand';">{{trans('label.total'). " : " .count($career)}}</small>
+                        <div class="section-header">
+                            <h2 class="{{Lang::locale()=='kh'? 'kh-os' : 'time-roman'}}">{{$categoryName}}</h2>
+                        </div>
                     </div>
-                    <br>
+                    <div>
+                    <br style="clear: both;">
                     @foreach($career as $car)
                         <a href="{{url('/career-detail/'.$car->id)}}">
                             <table cellpadding="20px" class="career-body">
