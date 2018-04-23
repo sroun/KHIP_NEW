@@ -48,7 +48,7 @@
                                     @for($i=1; $i<=$proCount; $i++)
                                     <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$i}}" class="page {{$i==$_GET['page']?'active':''}}">{{$i}}</a>
                                     @endfor
-                                    <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$_GET['page']+1>$proCount ? $proCount :$_GET['page']+1 }}" class="page {{Lang::locale()=='kh'?'kh-os':''}}" >{{trans('label.next')}}</a>
+                                    <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$_GET['page']+1 > $proCount ? $proCount :$_GET['page']+1 }}" class="page {{Lang::locale()=='kh'?'kh-os':''}}" >{{trans('label.next')}}</a>
                                     </div>
                                 </div>
                             @else
@@ -57,7 +57,7 @@
                                     @for($i=1; $i<=$proCount; $i++)
                                     <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$i}}" class="page {{$i==1?'active':''}}">{{$i}}</a>
                                     @endfor
-                                    <a href="http://localhost/query-category/{{$categoryId}}?page={{1+1}}" class="page {{Lang::locale()=='kh'?'kh-os':''}}" >{{trans('label.next')}}</a>
+                                    <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$i+1 > $proCount ? $proCount :$i+1 }}" class="page {{Lang::locale()=='kh'?'kh-os':''}}" >{{trans('label.next')}}</a>
                                 </div>
                             @endif
                         @endif

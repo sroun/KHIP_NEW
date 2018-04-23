@@ -21,7 +21,6 @@ class switchLanguage
         }else{
             Lang::setLocale('en');
         }
-
         return $next($request);
     }
 }

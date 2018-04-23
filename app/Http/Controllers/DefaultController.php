@@ -87,6 +87,9 @@ class DefaultController extends Controller
         $client = $language->clients()->where('trash',0)->get();
         $slider = $language->sliders()->where('trash',0)->get();
         $contact = Contact::limit(1)->get();
+        $address="N/A";
+        $phone="N/A";
+        $email="N/A";
         foreach ($contact as $c){
             $address = $c->address;
             $phone = $c->phone_number;
