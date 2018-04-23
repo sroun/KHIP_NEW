@@ -74,7 +74,7 @@ class frontController extends Controller
            $aboutus = $cat->aboutuses()->where('category_id',$id)->get();
            $news = $cat->activities()->orderBy('activities.id','desc')->paginate(2);
            $career = $cat->careers()->where('trash',0)->orderBy('careers.id','desc')->paginate(15);
-//           $client = $cat->clients()->where('trash',0)->orderBy('clients.id','desc')->paginate(15);
+           $client = $cat->clients()->where('trash',0)->orderBy('clients.id','desc')->paginate(15);
 
            if(count($product)){
 //               $pro = Product::where('trash',0)->get();
