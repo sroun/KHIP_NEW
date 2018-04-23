@@ -153,8 +153,9 @@
             <div class="section-header">
                 <h2 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{trans('label.new_product')}}</h2>
             </div>
+            @if(count($pro))
             <div class="owl-carousel testimonials-carousel">
-                @if(count($pro))
+
                     @foreach($pro as $p)
                         <a href="{{url('/product-detail/'.$p->id)}}">
                         <div class="testimonial-item">
@@ -167,10 +168,10 @@
                         </div>
                         </a>
                     @endforeach
-                @else
-                    <h2>{{trans('label.no_record')}}</h2>
-                @endif
             </div>
+            @else
+                <h6 class="center font-size-12 {{Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.data_not_found')}}</h6>
+            @endif
 
         </div>
     </section>
@@ -232,13 +233,16 @@
             <div class="section-header">
                 <h2 class="{{Lang::locale()=='kh'? 'kh-os' : ''}}">{{trans('label.our_client')}}</h2>
             </div>
+            @if(count($client))
             <div class="owl-carousel clients-carousel" style="padding: 20px">
                 @foreach($client as $c)
                     <?php $logo = $c->pivot->logo;?>
                     <a href="{{$c->pivot->url}}" target="_blank"><img style="padding: 25px; margin: auto;" src='{{asset("clientlogo/$logo")}}' alt="y"></a>
                 @endforeach
             </div>
-
+            @else
+                <h6 class="center font-size-12 {{Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.data_not_found')}}</h6>
+            @endif
         </div>
     </section><!-- #clients -->
 

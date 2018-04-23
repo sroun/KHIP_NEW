@@ -86,6 +86,9 @@ class DefaultController extends Controller
         $pro = $language->products()->orderBy('products.id','desc')->limit(10)->get();
         $client = $language->clients()->where('trash',0)->get();
         $contact = Contact::limit(1)->get();
+        $address="N/A";
+        $phone="N/A";
+        $email="N/A";
         foreach ($contact as $c){
             $address = $c->address;
             $phone = $c->phone_number;

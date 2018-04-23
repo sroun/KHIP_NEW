@@ -89,16 +89,13 @@
         'home'=>'ទំព័រដើម',
         'new_product'=>'ផលិតផលថ្មី',
         'total'=>'សរុប',
-<<<<<<< HEAD
         'previous'=>'ថយក្រោយ',
         'next'=>'បន្ទាប់',
         'other'=>'ផ្សេងទៀត',
-=======
         'url' => 'តំណភ្ជាប់',
         'placeholder_url' => 'http://www.example.com',
         'our_client' => 'អតិថិជនរបស់យើង',
         'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ'
->>>>>>> bba2a4be3d34a87fc9d520c036ae86b1345ab854
 
     ]
 ?>

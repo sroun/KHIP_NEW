@@ -1156,7 +1156,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 .orange{
     color: #eb5516;
 }
-<<<<<<< HEAD
 
 .item-news{
     border: 1px solid #f1f1f1;
@@ -1304,7 +1303,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#565b5f), to(#3e4347));
     background: -moz-linear-gradient(0% 0% 270deg,#565b5f, #3e4347);
 }
-=======
 .career-body{
     width: 100%;
     margin: 3px;
@@ -1342,5 +1340,3 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-family: "Khmer OS Content", "Khmer OS ",Serif;
     font-size: 12px;
 }
-
->>>>>>> bba2a4be3d34a87fc9d520c036ae86b1345ab854

@@ -22,10 +22,10 @@
                                                     <img src="{{asset('newsImages/'.$n->main_photo)}}" alt="No image" class="width-100 height-150">
                                                     @foreach($n->languages()->where('language_id',$lang)->get() as $new)
                                                         <div class="margin-top-5 line-height-25 orange {{Lang::locale()=='kh'? 'kh-os' : 'tittle-product'}}">
-                                                            {{str_limit($new->pivot->title,70)}}
+                                                            {{str_limit($new->pivot->title,50)}}
                                                         </div>
                                                         <div class="padding-5 font-size-12 {{Lang::locale()=='kh'? 'kh-os-no-bold' : 'arial'}}">
-                                                            {{str_limit($new->pivot->main_content,150)}}
+                                                            {{str_limit($new->pivot->main_content,120)}}
                                                         </div>
                                                         <div class="padding-5">
                                                             <small><i class="fa fa-calendar margin-right-10"></i>{{\Carbon\Carbon::parse($n->publish_date)->format('d-M-Y')}}</small><br>
