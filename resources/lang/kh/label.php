@@ -95,12 +95,9 @@
         'url' => 'តំណភ្ជាប់',
         'placeholder_url' => 'http://www.example.com',
         'our_client' => 'អតិថិជនរបស់យើង',
-<<<<<<< HEAD
-        'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ'
-=======
+        'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ',
         'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ',
         'slide_show' => 'Slide Show'
->>>>>>> 685c0c87669018ed39793520467fb94397ceff8e
 
     ]
 ?>

@@ -16,7 +16,7 @@
                             @foreach($news as $n)
                                 <div class="col-lg-3 col-md-6 col-sm-12" >
                                     <div class="form-group">
-                                        <a href="#">
+                                        <a href="{{url('/new-detail/'.$n->id)}}">
                                             <div>
                                                 <div class="item-news container" id="item-news">
                                                     <img src="{{asset('newsImages/'.$n->main_photo)}}" alt="No image" class="width-100 height-150">
