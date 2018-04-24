@@ -13,8 +13,8 @@
                              <div class="row">
                                  <div class="col-lg-12">
                                      <div class="form-group">
-                                         <span class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.title')}}</span>
-                                         {!! Form::text('title',$d->pivot->title,['class'=>Lang::locale()==='kh' ?'kh-os edit-form-control height-35 text-blue' : 'arial edit-form-control height-35 text-blue','placeholder'=>trans('label.fill'),'required']) !!}
+                                         <span class="{{Lang::locale()==='kh' ? 'kh-os' : 'arial'}}">{{trans('label.institution')}}</span>
+                                         {!! Form::text('title',$d->pivot->title,['class'=>Lang::locale()==='kh' ?'kh-os edit-form-control height-35 text-blue' : 'arial edit-form-control height-35 text-blue','placeholder'=>trans('label.institution'),'required']) !!}
                                      </div>
                                  </div>
                              </div>

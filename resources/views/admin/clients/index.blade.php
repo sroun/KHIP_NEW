@@ -7,7 +7,7 @@
             <th class="center">{{trans('label.No')}}</th>
             <th>{{trans('label.logo')}}</th>
             <th>{{trans('label.date')}}</th>
-            <th>{{trans('label.title')}}</th>
+            <th>{{trans('label.institution')}}</th>
             <th>{{trans('label.url')}}</th>
             <th class="center">{{trans('label.publish')}}</th>
             <th>{{trans('label.created_by')}}</th>

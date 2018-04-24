@@ -44,7 +44,7 @@
                             @if($get)
                                 <div class="pagination">
                                     <div id="pageId">
-                                    <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$_GET['page']-1<1? 1 :$_GET['page']-1}}" class="page {{Lang::locale()=='kh'?'kh-os':''}}">{{trans('label.previous')}}</a>
+                                    <a href="/product-by-category/{{$categoryId}}?page={{$_GET['page']-1<1? 1 :$_GET['page']-1}}" class="page {{Lang::locale()=='kh'?'kh-os':''}}">{{trans('label.previous')}}</a>
                                     @for($i=1; $i<=$proCount; $i++)
                                     <a href="http://localhost/product-by-category/{{$categoryId}}?page={{$i}}" class="page {{$i==$_GET['page']?'active':''}}">{{$i}}</a>
                                     @endfor

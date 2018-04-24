@@ -33,4 +33,7 @@ class Category extends Model
     public function activities(){
         return $this->hasMany(Activity::class);
     }
+    public function clients(){
+        return $this->hasMany(Client::class);
+    }
 }

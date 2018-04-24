@@ -90,13 +90,21 @@
         'previous'=>'Previous',
         'next'=>'Next',
         'other'=>'Other',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 75bb023f89e8ebc0b6663b6f967b457b8a040710
         'url' => 'URL',
         'placeholder_url' => 'http://www.example.com',
         'our_client' => 'Our Client',
         'contact_us' => 'Contact Us',
         'new_product'=>'New Product',
+<<<<<<< HEAD
         'slide_show' => 'Slide Show'
+=======
+        'slide_show' => 'Slide Show',
+        'institution' => 'Institution'
+>>>>>>> 75bb023f89e8ebc0b6663b6f967b457b8a040710
 
     ]
 

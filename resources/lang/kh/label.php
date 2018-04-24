@@ -95,9 +95,15 @@
         'url' => 'តំណភ្ជាប់',
         'placeholder_url' => 'http://www.example.com',
         'our_client' => 'អតិថិជនរបស់យើង',
+<<<<<<< HEAD
         'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ',
         'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ',
         'slide_show' => 'Slide Show'
+=======
+        'contact_us' => 'ទំនាក់ទំនងយើងខ្ញុំ',
+        'slide_show' => 'ផ្ទាំងបង្ហាញរូបភាព',
+        'institution' => 'ឈ្មោះស្ថាប័ន'
+>>>>>>> 75bb023f89e8ebc0b6663b6f967b457b8a040710
 
     ]
 ?>

@@ -93,11 +93,9 @@ class frontController extends Controller
                 $news = $cat->activities()->orderBy('activities.id', 'desc')->paginate(2);
 
                 $career = $cat->careers()->where('trash', 0)->orderBy('careers.id', 'desc')->paginate(15);
-
+                $client = $cat->clients()->where('trash',0)->orderBy('clients.id','desc')->paginate(15);
 
                 if (count($product)) {
-//               $pro = Product::where('trash',0)->get();
-//               $proCount=round(count($pro)/18);
                     return view('front.product', compact('product', 'lang', 'categoryName'));
                 }else if (count($aboutus)) {
                     return view('front.aboutus', compact('aboutus', 'lang', 'categoryName'));
@@ -107,6 +105,8 @@ class frontController extends Controller
                     $pro = Activity::where('trash', 0)->get();
                     $proCount = round(count($pro) / 2);
                     return view('front.news', compact('news', 'lang', 'categoryName', 'cat', 'get', 'proCount'));
+                } else if (count($client)) {
+                    return view('front.client', compact('client', 'lang', 'categoryName'));
                 } else {
                     return view('front.none', compact('lang', 'categoryName'));
                 }

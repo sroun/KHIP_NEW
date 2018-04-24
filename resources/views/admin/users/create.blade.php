@@ -175,6 +175,7 @@
                 dataType: 'html',
                 success:function (data) {
                      $('#editUser').html(data);
+//                    alert(data);
                 },
                 error:function (error) {
                     console.log(error);
