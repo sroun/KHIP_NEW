@@ -27,8 +27,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.title')}}</span>
-                                    {!! Form::text('title',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.title')])!!}
+                                    <span class="{{\Illuminate\Support\Facades\Lang::locale()=='kh'? 'kh-os' : 'arial'}}">{{trans('label.institution')}}</span>
+                                    {!! Form::text('title',null,['class'=>Lang::locale()=='kh'? 'kh-os edit-form-control text-blue height-35' : 'arial edit-form-control text-blue height-35','required'=>'true','placeholder'=>trans('label.institution')])!!}
                                     @if($errors->has('title'))
                                         <span class="text-danger">
                                             {{$errors->first('title')}}
