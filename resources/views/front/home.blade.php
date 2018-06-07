@@ -3,7 +3,7 @@
 @section('content')
     <!--==========================slider============================-->
     <div id="imageSlider" style="width: 82%; margin: 0 auto;">
-        <script src="js/jssor.slider-27.1.0.min.js" type="text/javascript"></script>
+        <script src="{{asset('js/jssor.slider-27.1.0.min.js')}}" type="text/javascript"></script>
         <script type="text/javascript">
             jssor_1_slider_init = function() {
 
@@ -78,7 +78,7 @@
             .jssora061.jssora061dn {opacity:.5;}
             .jssora061.jssora061ds {opacity:.3;pointer-events:none;}
         </style>
-        <div id="jssor_1" style="position:relative;top:0px;left:0px;width:auto;height:380px;overflow:hidden;visibility:hidden;">
+        <div id="jssor_1" style="position:relative;top:0px;left:0px;width:1500px;height:480px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
             <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
                 <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="imageSlider/spin.svg" />
@@ -88,12 +88,12 @@
                     @foreach($slider as $s)
                         <div data-p="170.00">
                             <img data-u="image" src="imageSlider/{{$s->image}}" />
-                            <div u="thumb">{{$s->pivot->description}}</div>
+                            <div u="thumb"><marquee>{{$s->pivot->description}}</marquee></div>
                         </div>
                     @endforeach
                 @else
                     <div data-p="170.00">
-                        <img data-u="image" src="imageSlider/default.png" />
+                        <img data-u="image" src="{{asset('imageSlider/default.png')}}">
                         <div u="thumb">Slide Description 001</div>
                     </div>
                 @endif

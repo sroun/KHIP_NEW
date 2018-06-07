@@ -75,7 +75,6 @@
                                 @endforeach
                                     @else
                                     <h6 class="text-info padding-7px {{Lang::locale()==='kh' ? 'kh-os font-size-12' : 'arial'}}">{{trans('label.data_not_found')}}</h6>
-
                                 @endif
                             </div>
                         </div>

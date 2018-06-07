@@ -86,15 +86,15 @@ class frontController extends Controller
                 foreach ($catName as $c) {
                     $categoryName = $c->pivot->name;
                 }
+                $prod = Product::where('trash',0)->get();
 
                 $product = $cat->products()->orderBy('categoryproduct_id', 'desc')->get();
                 $aboutus = $cat->aboutuses()->where('category_id', $id)->get();
 
-                $news = $cat->activities()->orderBy('activities.id', 'desc')->paginate(2);
-
+                $news = $cat->activities()->orderBy('activities.id', 'desc')->paginate(12);
                 $career = $cat->careers()->where('trash', 0)->orderBy('careers.id', 'desc')->paginate(15);
                 $client = $cat->clients()->where('trash',0)->orderBy('clients.id','desc')->paginate(15);
-
+                $promotion = $cat->promotions()->where('trash',0)->orderBy('promotions.id','des')->paginate(4);
                 if (count($product)) {
                     return view('front.product', compact('product', 'lang', 'categoryName'));
                 }else if (count($aboutus)) {
@@ -103,11 +103,13 @@ class frontController extends Controller
                     return view('front.career', compact('career', 'lang', 'categoryName'));
                 } else if (count($news)) {
                     $pro = Activity::where('trash', 0)->get();
-                    $proCount = round(count($pro) / 2);
+                    $proCount = round(count($pro) / 12);
                     return view('front.news', compact('news', 'lang', 'categoryName', 'cat', 'get', 'proCount'));
                 } else if (count($client)) {
                     return view('front.client', compact('client', 'lang', 'categoryName'));
-                } else {
+                } elseif(count($promotion)){
+                    return view('front.promotion', compact('promotion', 'prod','lang', 'categoryName'));
+                }else {
                     return view('front.none', compact('lang', 'categoryName'));
                 }
             } else {

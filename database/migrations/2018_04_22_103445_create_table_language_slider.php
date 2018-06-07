@@ -17,7 +17,7 @@ class CreateTableLanguageSlider extends Migration
             $table->increments('id');
             $table->integer('language_id');
             $table->integer('slider_id');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();
         });
     }

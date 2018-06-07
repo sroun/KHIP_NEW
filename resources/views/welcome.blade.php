@@ -42,8 +42,8 @@
         <section id="topbar" class="d-none d-lg-block">
             <div class="container clearfix">
                 <div class="contact-info float-left">
-                    <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">contact@example.com</a>
-                    <i class="fa fa-phone"></i> +885 123-456
+                    <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">{{\App\Contact::where('id','>',0)->value('email')? \App\Contact::where('id','>',0)->value('email') : 'N/A'}}</a>
+                    <i class="fa fa-phone"></i> {{\App\Contact::where('id','>',0)->value('email') ? \App\Contact::where('id','>',0)->value('email'):'N/A'}}
                 </div>
 
                 <div class="social-links float-right">

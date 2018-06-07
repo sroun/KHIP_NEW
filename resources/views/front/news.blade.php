@@ -13,31 +13,35 @@
                     </div>
                     <div class="content-aboutus padding-14">
                         <div class="row">
-                            @foreach($news as $n)
-                                <div class="col-lg-3 col-md-6 col-sm-12" >
-                                    <div class="form-group">
-                                        <a href="{{url('/new-detail/'.$n->id)}}">
-                                            <div>
-                                                <div class="item-news container" id="item-news">
-                                                    <img src="{{asset('newsImages/'.$n->main_photo)}}" alt="No image" class="width-100 height-150">
-                                                    @foreach($n->languages()->where('language_id',$lang)->get() as $new)
-                                                        <div class="margin-top-5 line-height-25 orange {{Lang::locale()=='kh'? 'kh-os' : 'tittle-product'}}">
-                                                            {{str_limit($new->pivot->title,50)}}
-                                                        </div>
-                                                        <div class="padding-5 font-size-12 {{Lang::locale()=='kh'? 'kh-os-no-bold' : 'arial'}}">
-                                                            {{str_limit($new->pivot->main_content,120)}}
-                                                        </div>
-                                                        <div class="padding-5">
-                                                            <small><i class="fa fa-calendar margin-right-10"></i>{{\Carbon\Carbon::parse($n->publish_date)->format('d-M-Y')}}</small><br>
-                                                            <small><i class="fa fa-clock-o margin-right-10"></i>{{\Carbon\Carbon::parse($n->publish_date)->format('h:i a')}}</small>
-                                                        </div>
-                                                    @endforeach
+                            @if(count($news))
+                                @foreach($news as $n)
+                                    <div class="col-lg-3 col-md-6 col-sm-12" >
+                                        <div class="form-group">
+                                            <a href="{{url('/new-detail/'.$n->id)}}">
+                                                <div>
+                                                    <div class="item-news container" id="item-news">
+                                                        <img src="{{asset('newsImages/'.$n->main_photo)}}" alt="No image" class="width-100 height-150">
+                                                        @foreach($n->languages()->where('language_id',$lang)->get() as $new)
+                                                            <div class="margin-top-5 line-height-25 orange {{Lang::locale()=='kh'? 'kh-os' : 'tittle-product'}}">
+                                                                {{str_limit($new->pivot->title,50)}}
+                                                            </div>
+                                                            <div class="padding-5 font-size-12 {{Lang::locale()=='kh'? 'kh-os-no-bold' : 'arial'}}">
+                                                                {{str_limit($new->pivot->main_content,120)}}
+                                                            </div>
+                                                            <div class="padding-5">
+                                                                <small><i class="fa fa-calendar margin-right-10"></i>{{\Carbon\Carbon::parse($n->publish_date)->format('d-M-Y')}}</small><br>
+                                                                <small><i class="fa fa-clock-o margin-right-10"></i>{{\Carbon\Carbon::parse($n->publish_date)->format('h:i a')}}</small>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                                @else
+                                <h6 class="text-info padding-7px {{Lang::locale()==='kh' ? 'kh-os font-size-12' : 'arial'}}">{{trans('label.data_not_found')}}</h6>
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col-lg-12">

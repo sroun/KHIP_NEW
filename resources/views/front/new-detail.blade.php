@@ -46,7 +46,7 @@
                                             <img src="{{asset('newsImages/'.$n->main_photo)}}" class="show-product" alt="">
                                             @foreach($n->languages()->where('language_id',$langId)->get() as $ns)
                                                 <div class=" {{Lang::locale()=='kh'? 'kh-os' : 'arial'}}">
-                                                    {{$ns->pivot->title}}
+                                                    {{str_limit($ns->pivot->title,150)}}
                                                 </div>
                                                 {{--<div class="font-size-12 {{Lang::locale()=='kh'? 'kh-os-no-bold' : 'arial'}}">--}}
                                                     {{--{{str_limit($ns->pivot->summary,116)}}--}}
